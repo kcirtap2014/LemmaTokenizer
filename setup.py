@@ -4,6 +4,7 @@ setup(
     name='lemma_tokenizer',
     author='Patrick lee',
     author_email='lee.patrickmunseng@gmail.com',
+    version="0.0.1",
     packages=['lemma_tokenizer'],
     description='lemma tokenizer class',
     platforms='Linux, MacOSX',
@@ -12,5 +13,10 @@ setup(
         'pandas',
         'numpy'
     ],
-    url='github.com/kcirtap2014/LemmaTokenizer.git'
+    url='github.com/kcirtap2014/LemmaTokenizer.git',
+    classifiers=(
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved",
+        "Operating System :: OS Independent",
+    ),
 )
