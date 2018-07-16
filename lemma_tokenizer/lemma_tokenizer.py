@@ -3,6 +3,7 @@ import numpy as np
 from nltk import regexp_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+import pdb
 import re
 
 class LemmaTokenizer(object):
@@ -10,9 +11,7 @@ class LemmaTokenizer(object):
     tokenize text
     """
     def __init__(self):
-        self.wnl = WordNetLemmatizer()
-        self.stopwords = stopwords
-        self.regexp_tokenize = regexp_tokenize
+        pass
 
     def __call__(self, doc):
         if pd.notnull(doc):
@@ -24,22 +23,23 @@ class LemmaTokenizer(object):
             doc_lower = self.lower(doc)
             doc_punct = self.striphtmlpunct(doc_lower)
             doc_tabs = self.striptabs(doc_punct)
-
             # create stoplist
             stoplist = [self.striphtmlpunct(x)
-                        for x in self.stopwords.words('english')] + [
+                        for x in stopwords.words('english')] + [
                             'im', 'ive'] + [
                             'use', 'get', 'like', 'file', 'would', 'way',
                             'code','work', 'want', 'need']
 
             lemmatized = []
-            regex_tokens = self.regexp_tokenize(doc_tabs,
+            regex_tokens = regexp_tokenize(doc_tabs,
                                                 pattern='\w+\S+|\.\w+')
+            wnl = WordNetLemmatizer()
 
             for word in regex_tokens:
                 #for word, p_tags in pos_tag(regex_tokens):
                 #convert_pos_tag = convert_tag(p_tags)
-                lemmatized_word = self.wnl.lemmatize(word)
+
+                lemmatized_word = wnl.lemmatize(word)
                 if lemmatized_word not in set(stoplist):
                     lemmatized.append(lemmatized_word)
 
