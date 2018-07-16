@@ -7,5 +7,12 @@ setup(
     packages=['lemma_tokenizer'],
     description='lemma tokenizer class',
     platforms='Linux, MacOSX',
-    url='github.com/kcirtap2014/lemma_tokenizer.git'
+    install_requires=[
+        'nltk',
+        'pandas',
+        'numpy'
+        'nltk.corpus',
+        'nltk.stem'
+    ],
+    url='github.com/kcirtap2014/LemmaTokenizer.git'
 )
