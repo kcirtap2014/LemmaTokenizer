@@ -38,7 +38,6 @@ class LemmaTokenizer(object):
             for word in regex_tokens:
                 #for word, p_tags in pos_tag(regex_tokens):
                 #convert_pos_tag = convert_tag(p_tags)
-
                 lemmatized_word = wnl.lemmatize(word)
                 if lemmatized_word not in set(stoplist):
                     lemmatized.append(lemmatized_word)
