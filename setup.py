@@ -11,6 +11,8 @@ setup(
         'nltk',
         'pandas',
         'numpy'
+        'nltk.corpus',
+        'nltk.stem'
     ],
     url='github.com/kcirtap2014/LemmaTokenizer.git'
 )
