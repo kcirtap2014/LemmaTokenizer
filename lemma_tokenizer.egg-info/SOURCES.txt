@@ -1,0 +1,9 @@
+README.md
+setup.py
+lemma_tokenizer/__init__.py
+lemma_tokenizer/lemma_tokenizer.py
+lemma_tokenizer.egg-info/PKG-INFO
+lemma_tokenizer.egg-info/SOURCES.txt
+lemma_tokenizer.egg-info/dependency_links.txt
+lemma_tokenizer.egg-info/requires.txt
+lemma_tokenizer.egg-info/top_level.txt
