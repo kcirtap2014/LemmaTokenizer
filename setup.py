@@ -13,10 +13,10 @@ setup(
         'pandas',
         'numpy'
     ],
-    url='github.com/kcirtap2014/LemmaTokenizer.git',
-    classifiers=(
+    url='https://github.com/kcirtap2014/LemmaTokenizer',
+    classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved",
         "Operating System :: OS Independent",
-    ),
+    ],
 )
