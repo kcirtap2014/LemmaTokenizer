@@ -1,11 +1,12 @@
 Metadata-Version: 1.1
 Name: lemma-tokenizer
-Version: 0.0.1
+Version: 0.0.2
 Summary: lemma tokenizer class
 Home-page: https://github.com/kcirtap2014/LemmaTokenizer
 Author: Patrick lee
 Author-email: lee.patrickmunseng@gmail.com
 License: UNKNOWN
+Description-Content-Type: UNKNOWN
 Description: UNKNOWN
 Platform: Linux
 Platform: MacOSX

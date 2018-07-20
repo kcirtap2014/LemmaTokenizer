@@ -4,7 +4,7 @@ setup(
     name='lemma_tokenizer',
     author='Patrick lee',
     author_email='lee.patrickmunseng@gmail.com',
-    version="0.0.1",
+    version="0.0.2",
     packages=['lemma_tokenizer'],
     description='lemma tokenizer class',
     platforms='Linux, MacOSX',

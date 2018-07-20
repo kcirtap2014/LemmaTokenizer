@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from nltk import regexp_tokenize
+from nltk import regexp_tokenize, pos_tag
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import pdb
