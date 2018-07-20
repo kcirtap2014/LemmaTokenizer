@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from nltk import regexp_tokenize
+from nltk import regexp_tokenize, pos_tag
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import pdb
@@ -21,7 +21,8 @@ class LemmaTokenizer(object):
             # are found after post-processing
 
             doc_lower = self.lower(doc)
-            doc_punct = self.striphtmlpunct(doc_lower)
+            doc_xcode = self.stripcode(doc_lower)
+            doc_punct = self.striphtmlpunct(doc_xcode)
             doc_tabs = self.striptabs(doc_punct)
             # create stoplist
             stoplist = [self.striphtmlpunct(x)
@@ -35,10 +36,9 @@ class LemmaTokenizer(object):
                                                 pattern='\w+\S+|\.\w+')
             wnl = WordNetLemmatizer()
 
-            for word in regex_tokens:
-                #for word, p_tags in pos_tag(regex_tokens):
-                #convert_pos_tag = convert_tag(p_tags)
-                lemmatized_word = wnl.lemmatize(word)
+            for word, p_tags in pos_tag(regex_tokens):
+                convert_pos_tag = convert_tag(p_tags)
+                lemmatized_word = wnl.lemmatize(word, pos = convert_pos_tag)
                 if lemmatized_word not in set(stoplist):
                     lemmatized.append(lemmatized_word)
 
@@ -59,6 +59,13 @@ class LemmaTokenizer(object):
 
             return pe.sub('', res)
         return data
+
+    def stripcode(self,data):
+        # remove code
+        p = re.compile("<code>(.+?)<\/code>", flags=re.DOTALL)
+
+        return p.sub('', data)
+
 
     def striptabs(self, data):
         # remove tabs breaklines

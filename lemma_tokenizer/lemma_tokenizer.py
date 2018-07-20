@@ -76,3 +76,15 @@ class LemmaTokenizer(object):
         if pd.notnull(data):
             return data.lower()
         return data
+
+def convert_tag(tag):
+    """
+    Convert the tag given by nltk.pos_tag
+    to the tag used by wordnet.synsets
+    """
+    tag_dict = {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v'}
+    try:
+        return tag_dict[tag[0]]
+    except KeyError:
+        # defalut value
+        return 'n'  #None
