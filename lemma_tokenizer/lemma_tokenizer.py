@@ -37,7 +37,7 @@ class LemmaTokenizer(object):
             wnl = WordNetLemmatizer()
 
             for word, p_tags in pos_tag(regex_tokens):
-                convert_pos_tag = convert_tag(p_tags)
+                convert_pos_tag = self.convert_tag(p_tags)
                 lemmatized_word = wnl.lemmatize(word, pos = convert_pos_tag)
                 if lemmatized_word not in set(stoplist):
                     lemmatized.append(lemmatized_word)
@@ -77,14 +77,14 @@ class LemmaTokenizer(object):
             return data.lower()
         return data
 
-def convert_tag(tag):
-    """
-    Convert the tag given by nltk.pos_tag
-    to the tag used by wordnet.synsets
-    """
-    tag_dict = {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v'}
-    try:
-        return tag_dict[tag[0]]
-    except KeyError:
-        # defalut value
-        return 'n'  #None
+    def convert_tag(self, tag):
+        """
+        Convert the tag given by nltk.pos_tag
+        to the tag used by wordnet.synsets
+        """
+        tag_dict = {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v'}
+        try:
+            return tag_dict[tag[0]]
+        except KeyError:
+            # defalut value
+            return 'n'  #None
